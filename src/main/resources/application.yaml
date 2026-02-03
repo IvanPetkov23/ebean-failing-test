@@ -1,0 +1,46 @@
+datasource:
+  default: db
+  db:
+    databaseDriver: org.h2.Driver
+    databaseUrl: jdbc:h2:mem:test
+    heartbeatsql: select 1
+    password: sa
+    username: sa
+
+ebean:
+  dbSchema: schema_test
+  search:
+    packages: com.example
+  migration:
+    run: true
+  ddl:
+    generate: false
+    run: false
+  debug:
+    lazyload: false
+    sql: false
+  logging: all
+  logging.directory: logs
+"%test":
+  datasource:
+    default: db
+    db:
+      databaseDriver: org.h2.Driver
+      databaseUrl: jdbc:h2:mem:test
+      heartbeatsql: select 1
+      password: sa
+      username: sa
+
+  ebean:
+    dbSchema: schema_test
+    migration:
+      run: true
+    ddl:
+      generate: true
+      run: true
+      seedSql: insert_data.sql
+    debug:
+      lazyload: false
+      sql: false
+    logging: all
+    logging.directory: logs
